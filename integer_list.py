@@ -1,12 +1,28 @@
 def read_integer_list():
-    # Read a list of integers from the user as a string
-    input_str = input("Enter a list of integers, seperated by spaces: ")
+    while True:
+        try:
+            # Read the number of integers from the user
+            num_integers = int(input("Enter the number of integers: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid number of integers.")
 
-    # Split the string into a list of integers
-    integer_list = [int(x) for x in input_str.split()]
+    # Initialize an empty list
+    integer_list = []
+
+    # Read the integers from the user and add them to the list
+    for i in range(num_integers):
+        while True:
+            try:
+                integer = int(input("Enter an integer: "))
+                break
+            except ValueError:
+                print("Invalid input. Please enter a valid integer.")
+        integer_list.append(integer)
 
     # Return the list of integers
     return integer_list
+
 
 def calculate_mean(integer_list):
     # Initialize a sum variable
