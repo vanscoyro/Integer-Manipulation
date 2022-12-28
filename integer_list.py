@@ -36,6 +36,27 @@ def calculate_median(integer_list):
         return (integer_list[median_index1] + integer_list[median_index2]) / 2
 
 
+def calculate_mode(integer_list):
+    # Create a dictionary to count the frequency of each element
+    frequency_count = {}
+    for x in integer_list:
+        if x in frequency_count:
+            frequency_count[x] += 1
+        else:
+            frequency_count[x] = 1
+
+    # Find the element with the highest frequency
+    mode = None
+    highest_frequency = 0
+    for x, frequency in frequency_count.items():
+        if frequency > highest_frequency:
+            mode = x
+            highest_frequency = frequency
+
+    # Return the mode
+    return mode
+
+
 # Read a list of integers from the user
 integer_list = read_integer_list()
 
@@ -45,6 +66,10 @@ mean = calculate_mean(integer_list)
 # Calculate the median of the list of integers
 median = calculate_median(integer_list)
 
-# Print the mean and median
+# Calculate the mode of the list of integers
+mode = calculate_mode(integer_list)
+
+# Print the mean median and mode
 print(f"The mean is {mean}")
 print(f"The median is {median}")
+print(f"The mode is {mode}")
